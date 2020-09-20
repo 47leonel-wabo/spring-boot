@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Document Management</title>
+</head>
+<body>
+	<h3>Upload Multiple Files</h3>
+	<form id="uploadFiles" name="uploadFiles" method="post"
+		encType="multipart/form-data" th:action=@{/uploadFiles}>
+		<input type="file" name="files" multiple required /> <input
+			type="submit" value="save file(s)" />
+	</form>
+	<h3>List of Documents</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>File Name</th>
+				<th>File Type</th>
+				<th>Download Link</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="doc:${docs}">
+				<td th:text="${doc.id}" />
+				<td th:text="${doc.docName}" />
+				<td th:text="${doc.docType}" />
+				<td><a th:href="@{'/downloadFile/'+${doc.id}}">Download</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

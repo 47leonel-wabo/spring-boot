@@ -25,7 +25,6 @@ public class Doc {
 	}
 
 	public Doc(String docName, String docType, byte[] docData) {
-		super();
 		this.docName = docName;
 		this.docType = docType;
 		this.docData = docData;
