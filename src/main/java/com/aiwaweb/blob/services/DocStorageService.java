@@ -11,5 +11,6 @@ public interface DocStorageService {
 	public Doc saveFileDocument(MultipartFile file);
 	public Doc getDocumentById(Integer dicID);
 	public List<Doc> getallDocuments();
+	public void deleteDocumentByID(Integer id);
 
 }

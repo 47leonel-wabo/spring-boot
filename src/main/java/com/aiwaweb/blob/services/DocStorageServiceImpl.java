@@ -25,10 +25,7 @@ public class DocStorageServiceImpl implements DocStorageService {
 	public Doc saveFileDocument(MultipartFile file) {
 		String docName = file.getOriginalFilename();
 		try {
-			Doc doc = new Doc(
-					docName,
-					file.getContentType(),
-					file.getBytes());
+			Doc doc = new Doc(docName, file.getContentType(), file.getBytes());
 			return docRepository.save(doc);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -44,6 +41,11 @@ public class DocStorageServiceImpl implements DocStorageService {
 	@Override
 	public List<Doc> getallDocuments() {
 		return docRepository.findAll();
+	}
+
+	@Override
+	public void deleteDocumentByID(Integer id) {
+		docRepository.deleteById(id);
 	}
 
 }
